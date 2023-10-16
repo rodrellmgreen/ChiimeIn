@@ -1,0 +1,20 @@
+<h1 class="feed-header">Home Feed</h1>
+
+<ng-container *ngIf="authService.currentUser$ | async">
+  <button mat-raised-button (click)="openDialog('0ms', '0ms')">
+    New Chiime
+
+    <mat-icon><span class="material-icons-outlined">
+post_add
+</span></mat-icon>
+  </button>
+ <app-chiimeList [chiimeList]="chiimeList"></app-chiimeList>
+</ng-container>
+<ng-container *ngIf="!chiimeList">
+  <mat-card>
+    <mat-card-content>
+      <h1>Post a comment or Follow other users to populate your home feed!</h1>
+      <h2>Switch to the public page to see what everyone is Chiiming in On!</h2>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

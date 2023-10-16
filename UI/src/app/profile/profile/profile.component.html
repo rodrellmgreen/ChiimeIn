@@ -1,0 +1,86 @@
+<div *ngIf="profile$ | async as profile;">
+
+<ng-container *ngIf="!editMode">
+  <mat-card>
+    <mat-card-title  *ngIf="profile.userName !== null">{{
+      profile.userName
+    }}</mat-card-title>
+    <ng-container *ngIf="authService.currentUser$ | async as user">
+      <button
+        mat-button
+        class="follow-button"
+        mat-raised-button
+        (click)="follow()"
+        *ngIf="
+          !profile.followers.includes(user.userName) &&
+          profile.userName != user.userName
+        "
+      >
+        Follow
+      </button>
+      <button
+        mat-button
+        class="follow-button"
+        mat-raised-button
+        (click)="unfollow()"
+        *ngIf="
+          profile.followers.includes(user.userName) &&
+          profile.userName != user.userName
+        "
+      >
+        Unfollow
+      </button>
+
+      <button
+        mat-icon-button
+        *ngIf="user.userName == profile.userName"
+        (click)="enterEditMode()"
+      >
+        <mat-icon
+          ><span class="material-icons-outlined"> mode_edit </span></mat-icon
+        >
+      </button>
+    </ng-container>
+
+    <h2>About Me: {{ profile.bio }}</h2>
+
+
+  </mat-card>
+  <mat-card-content>
+    <app-chiimeList [chiimeList]="profile.chiimeList"></app-chiimeList>
+  </mat-card-content>
+</ng-container>
+
+
+<ng-container *ngIf="editMode">
+<div>
+   <form [formGroup]="editProfileForm" (ngSubmit)="saveProfile()">
+    <h1>Edit Profile</h1>
+    <div>
+      <mat-form-field>
+        <mat-label>About Me:</mat-label>
+        <textarea
+          matInput
+          type="text"
+          formControlName="bio"
+          placeholder="{{profile.bio}}"
+
+        ></textarea>
+      </mat-form-field>
+
+    </div>
+
+
+    <div>
+      <button mat-icon-button  type="submit">
+        <mat-icon><span class="material-icons-outlined"> save </span></mat-icon>
+      </button>
+      <button mat-button (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+
+</ng-container>
+</div>

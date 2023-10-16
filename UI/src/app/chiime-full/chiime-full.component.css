@@ -1,0 +1,80 @@
+.chiime-container{
+  min-width: 75%;
+  max-width: 75%;
+  min-height: 100vh;
+
+  margin: auto;
+
+
+}
+.comment-container{
+  max-width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+
+}
+.comment-individual{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2%;
+
+
+}
+.dialog-form{
+ align-items: flex-end;
+ display: flex;
+}
+.chiime-card{
+  min-height: 100vh;
+ height: 100%;
+ display: flex;
+
+
+}
+.comment-card{
+  display: flex;
+
+  width: 100%;
+}
+p{
+  align-self: start;
+}
+mat-list{
+  height: 100%;
+}
+mat-list-item{
+  height: 100%;
+}
+
+
+.new-chiime {
+
+  width: 100%;
+  height: 100%
+}
+
+.chiime-field-content,mat-card-content {
+  width: 75%;
+  height: 80%;
+  margin: auto;
+
+
+}
+.chiime-field-title{
+  width: 100%;
+  height: 20%
+
+}
+.edit-form, mat-card-title{
+  display: flex;
+  align-items: center;
+}
+.mat-card-footer{
+  height: 10%;
+}
+
+.comment-header{
+  background-color: black;
+}

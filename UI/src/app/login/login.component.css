@@ -1,0 +1,9 @@
+form, h1, button, div {
+
+  max-width: 60%;
+  margin: auto;
+}
+.form-field{
+  width: 100%;
+}
+

@@ -1,0 +1,12 @@
+<form mat-dialog-content class="new-chiime" [formGroup]="chiimeForm" (ngSubmit)="chiimeForm.valid && create()">
+  <mat-form-field class="chiime-field-title">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Ex. Title" value="Example" formControlName="title" required>
+  </mat-form-field>
+
+  <mat-form-field class="chiime-field-content">
+    <mat-label>Content</mat-label>
+    <textarea matInput placeholder="Express your thoughts in 500 characters or less..." formControlName="content" required></textarea>
+  </mat-form-field>
+  <button mat-raised-button (click)="closeDialog()" >Post</button>
+</form>

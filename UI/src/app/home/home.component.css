@@ -1,0 +1,14 @@
+div {
+  max-width: 500px;
+  margin: auto;
+}
+.chiime-list{
+  height: 100%;
+
+}
+.feed-header{
+
+  color: whitesmoke;
+  justify-content: center;
+  display: flex;
+}

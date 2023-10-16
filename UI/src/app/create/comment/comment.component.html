@@ -1,0 +1,7 @@
+<form class="new-comment" [formGroup]="commentForm" (ngSubmit)="commentForm.valid && create() ">
+  <mat-form-field class="comment-field-content">
+    <mat-label>Comment</mat-label>
+    <input matInput  formControlName="content" required placeholder="Max length is 140 characters">
+  </mat-form-field>
+  <button color="accent"  mat-raised-button (click)="closeDialog()">Post</button>
+</form>

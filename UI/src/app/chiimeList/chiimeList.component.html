@@ -1,0 +1,22 @@
+<div color="primary">
+  <mat-list>
+    <div class="chiime-list" *ngFor="let chiime of chiimeList" >
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <button mat-button routerLink="/profile/{{ chiime.userName }}">
+
+              {{ chiime.userName }}
+
+
+          </button>
+
+          <mat-panel-description>
+            On: {{ chiime.title }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Preview: {{chiime.content.substring(0, 25) }}...</p>
+        <button mat-raised-button color="accent"  routerLink="/chiime/{{chiime.id}}">View Full</button>
+      </mat-expansion-panel>
+    </div>
+  </mat-list>
+</div>

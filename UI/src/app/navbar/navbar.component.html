@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <h1><button  mat-flat-button (click)="landing()">Chiime</button></h1>
+  <ng-container *ngIf="(authService.currentUser$ | async) as user">
+    <mat-list >
+
+      <mat-list-item class="nav-item"><a routerLink="/" routerLinkActive="active"><mat-icon><span class="material-icons-outlined">
+        home
+        </span></mat-icon></a></mat-list-item>
+      <mat-list-item class="nav-item"><a routerLink="/public" routerLinkActive="active"><mat-icon><span class="material-icons-outlined">
+        public
+        </span></mat-icon></a></mat-list-item>
+
+    </mat-list>
+    <!-- <img   src="" alt="avatar" *ngIf="(authService.currentUser$ | async) as user"> -->
+    <button mat-fab [matMenuTriggerFor]="menu" >{{user.userName | titlecase}}</button>
+    <mat-menu #menu="matMenu" >
+
+      <button mat-menu-item routerLink="/profile/{{ user.userName }}" routerLinkActive="active" (click)="getProfile(user.userName)">Profile</button>
+
+
+      <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+
+  </ng-container>
+  <ng-container *ngIf="!(authService.currentUser$ | async) as user">
+    <button mat-button routerLink="/login" routerLinkActive="">Login</button>
+  </ng-container>
+
+
+
+
+</mat-toolbar>

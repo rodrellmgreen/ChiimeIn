@@ -1,0 +1,9 @@
+form, h2, button, div, mat-list-item, mat-list {
+
+    max-width: 50%;
+    margin: auto;
+}
+.form-field{
+  width: 100%;
+}
+

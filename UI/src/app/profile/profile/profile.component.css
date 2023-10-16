@@ -1,0 +1,10 @@
+.follow-button{
+  max-width: fit-content;
+}
+div, mat-card {
+  max-width: 70%;
+ 
+  margin: auto;
+
+  min-height: 35%;
+}

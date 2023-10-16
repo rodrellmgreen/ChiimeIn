@@ -1,0 +1,21 @@
+.home{
+  margin-right: 75%;
+}
+img {
+  max-width: 50px;
+  border: 2px solid black;
+  display: inline;
+}
+
+mat-list-item, a {
+  list-style-type: none;
+  display: inline-flex;
+  margin-right: auto;
+  text-decoration: none;
+  color: whitesmoke;
+  max-width: fit-content;
+}
+mat-list{
+  margin-right:auto;
+  display: flex;
+}

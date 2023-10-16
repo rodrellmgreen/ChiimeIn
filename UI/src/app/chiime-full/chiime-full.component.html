@@ -1,0 +1,133 @@
+<div *ngIf="!editMode" >
+  <div class="chiime-container" >
+    <mat-card class="chiime-card" >
+      <mat-card-header class="mat-card-header"
+        ><button  mat-fab color="accent" routerLink="/profile/{{ userName }}">
+          {{ userName }}
+        </button>
+        <ng-container *ngIf="authService.currentUser$ | async as user">
+          <ng-container *ngIf="user.userName == userName">
+            <button color="warn" mat-button (click)="deleteChiime()">
+              <mat-icon
+                ><span class="material-icons-outlined"> delete </span></mat-icon
+              >
+            </button>
+            <button
+              mat-icon-button
+              *ngIf="!editMode"
+              (click)="toggleEditMode()"
+            >
+              <mat-icon
+                ><span class="material-icons-outlined">
+                  edit_note
+                </span></mat-icon
+              >
+            </button>
+          </ng-container>
+        </ng-container>
+      </mat-card-header>
+
+      <mat-card-title>On: {{ title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ content }}</p>
+      </mat-card-content>
+
+      <mat-card-footer>
+        <h3>{{ editedDate | date : 'medium' }}</h3>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+  <div class="comment-container">
+    <mat-card class="comment-card" >
+      <mat-card-header class="mat-app-background">
+        <mat-panel-title >
+          <h2 >Comments</h2>
+        </mat-panel-title>
+
+      </mat-card-header>
+      <mat-list >
+        <mat-card class="comment-individual" *ngFor="let comment of comments">
+          <div class="comment-user-button">
+            <button mat-fab color="accent" routerLink="/profile/{{ comment.userName }}">
+              {{ comment.userName }}
+            </button>
+            <ng-container *ngIf="authService.currentUser$ | async as user">
+              <button color="warn"
+                mat-button
+                *ngIf="user.userName == comment.userName"
+                (click)="deleteComment(comment.id)"
+              >
+                <mat-icon
+                  ><span class="material-icons-outlined">
+                    delete
+                  </span></mat-icon
+                >
+              </button>
+            </ng-container>
+            <mat-card-content >
+              <p style="font-size: large; font-weight: 700;">
+                {{ comment.content }}
+              </p>
+              <mat-card-footer>{{comment.updatedDate | date : 'medium'}}</mat-card-footer>
+            </mat-card-content>
+
+            <mat-divider aria-orientation="vertical"></mat-divider>
+          </div>
+        </mat-card></mat-list
+      >
+      <button
+      mat-raised-button
+      class="dialog-form"
+      (click)="openDialog('0ms', '0ms')"
+    >
+      <mat-icon
+        ><span class="material-icons-outlined">
+          insert_comment
+        </span></mat-icon
+      >
+    </button>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="editMode" class="edit-form">
+  <ng-container *ngIf="authService.currentUser$ | async as user">
+    <form
+      class="edit-chiime"
+      [formGroup]="editChiimeForm"
+      (ngSubmit)="editChiime()"
+    >
+      <mat-form-field class="chiime-field-title">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          [(ngModel)]="title"
+          formControlName="title"
+          required
+          type="text"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="chiime-field-content">
+        <mat-label>Content</mat-label>
+        <textarea
+          matInput
+          formControlName="content"
+          type="text"
+          [(ngModel)]="content"
+        ></textarea>
+      </mat-form-field>
+      <button mat-icon-button type="submit" *ngIf="editMode">
+        <mat-icon><span class="material-icons-outlined"> save </span></mat-icon>
+      </button>
+      <button
+        mat-button
+        type="button"
+        *ngIf="editMode"
+        (click)="toggleEditMode()"
+      >
+        Cancel
+      </button>
+    </form>
+  </ng-container>
+</div>
