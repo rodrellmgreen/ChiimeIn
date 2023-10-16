@@ -5,10 +5,16 @@ Chiime is a social media platform allowing users to chime in on a topic in more 
 
 Tech Used:  Angular · ASP.NET Core · Entity Framework (EF) Core · Microsoft SQL Server · C# · Angular Material 
 
-<img width="1895" alt="Chiime1" src="https://github.com/rodrellmgreen/ChiimeIn/assets/138078005/8f79970c-1694-4198-87bf-7a057d6f3dbc">
-<img width="1895" alt="Chiime2" src="https://github.com/rodrellmgreen/ChiimeIn/assets/138078005/a1754be0-e9ea-49e8-92a1-7e5fea20b869">
 
 
 
 
 
+
+
+
+<img width="1895" alt="ChiimeHF" src="https://github.com/rodrellmgreen/ChiimeIn/assets/138078005/510db7af-6cc9-418a-bc61-32316a084348">
+
+<img width="1921" alt="ChiimePF" src="https://github.com/rodrellmgreen/ChiimeIn/assets/138078005/d6b3813a-9666-432a-bb7f-2682cee5cb85">
+<img width="1921" alt="ChiimePost" src="https://github.com/rodrellmgreen/ChiimeIn/assets/138078005/9f5ddfbc-c9a6-4c2d-ac3f-42a2ab257ab4">
+<img width="1921" alt="ChiimeProfile" src="https://github.com/rodrellmgreen/ChiimeIn/assets/138078005/8eaa9f22-3f22-41a5-b100-7c270035f07e">
